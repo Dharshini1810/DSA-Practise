@@ -1,0 +1,50 @@
+import java.util.*;
+public class MergeSort
+{
+    public static void sortArray(int[] a,int l,int mid1,int r){
+        for(int i=l;i<=mid1;i++){
+            for(int j=mid1;j<=r;j++){
+                if(a[i]>a[j]){
+                    int t=a[i]; 
+                    a[i]=a[j]; 
+                    a[j]=t;
+                }
+            }
+        } 
+        System.out.println(Arrays.toString(a));
+    }
+    public static void mergeSort(int[] a,int l,int r){
+        if(r - l == 1){
+            return;
+        } 
+        int mid1=(l+r)/2;
+        mergeSort(a,l,mid1); 
+        mergeSort(a,mid1,r); 
+        sortArray(a,l,mid1,r);
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in); 
+		int n=sc.nextInt(); 
+		int[] a=new int[n]; 
+		int[] b=new int[n+1]; 
+		for(int i=0;i<n;i++){
+		    a[i]=sc.nextInt();
+		} 
+		int k=0;
+		int mid=n/2;
+		mergeSort(a,0,mid-1);
+		mergeSort(a,mid,n-1); 
+		for(int i=0;i<n;i++){
+		    for(int j=mid;j<n;j++){
+		        if(a[i]>a[j]){
+		            b[k]=a[j];
+		        } 
+		        else{
+		            b[k]=a[i];
+		        }
+		    }  
+		    k+=1;
+		}
+		System.out.print(Arrays.toString(b));
+	}
+}
