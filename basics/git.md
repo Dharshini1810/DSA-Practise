@@ -1,18 +1,18 @@
 # Git
 
-Git is a distributed version control system (DVCS) used for tracking changes in source code
-It helps in managing and tracking different versions of your code
-It can be installed either as GUI and CLI application
-It helps in creating a local repository and tracks code changes in that repository
+Git is a distributed version control system (DVCS) used for tracking changes in source code.
+It helps in managing and tracking different versions of your code.
+It can be installed either as GUI and CLI application.
+It helps in creating a local repository and tracks code changes in that repository.
 
 # Github
 
-Github is a cloud-based platform for hosting git repos and colloboration tool
-It basically uses git and represents and stores the repos in a more presentable and managable format
-Provides a remote Git repository hosting service, issue tracking, and CI/CD integrations
-It helps in colloborating your project repo with others 
-Allows multiple contributors to work together easily via pull requests
-Access control is granted by the repo owner to other contributors
+Github is a cloud-based platform for hosting git repos and colloboration tool.
+It basically uses git and represents and stores the repos in a more presentable and managable format.
+Provides a remote Git repository hosting service, issue tracking, and CI/CD integrations.
+It helps in colloborating your project repo with others.
+Allows multiple contributors to work together easily via pull requests.
+Access control is granted by the repo owner to other contributors.
 
 Analogy
 Git is like a file system on your computer that tracks changes in code.
@@ -26,8 +26,8 @@ git init
 This basically create a .git folder and this following is responsible for tracking all the files 
 
 ### To add file to staging area 
-touch test.txt
-git add test.txt
+- touch test.txt
+- git add test.txt
 
 staging area - It is an intermediate space between your working directory and git repo, where your file is being prepared to be moved to git repo
 Without adding files to staging area, any changes made in the file will not be tracked
