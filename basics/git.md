@@ -69,5 +69,24 @@ If you want to revert back or move back commit 1
 
 git revert <commit-id>
 
+### To set global user to gitbash 
+from that user all changes will be made to github repo
+
+git config user.name ""
+git config user.email ""
+git config --list [To list all the users] 
+
+### To add remote repo to git
+git remote -v[check any remote repo exist]
+git add remote origin <repo_url> 
+- In this origin is the name given for that url [for eg: like alias name in linux origin = "https://github.com/username/repo.git"]
+- To remove: git remote remove origin
+
+### To push data to added repo
+git push origin main
+
+- In this origin represents the repo and main is the branch in which data is to be pushed
+
+
 
 
