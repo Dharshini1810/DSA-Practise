@@ -1,92 +1,129 @@
-# Git
+## Git vs GitHub
+### What is Git?
+Git is a distributed version control system (DVCS) used to track changes in source code efficiently.
+It enables developers to maintain different versions of their code and collaborate seamlessly.
+Git can be used via CLI (Command Line Interface) or GUI (Graphical User Interface).
+It helps in managing a local repository, tracking modifications, and committing changes.
 
-- Git is a distributed version control system (DVCS) used for tracking changes in source code.
-- It helps in managing and tracking different versions of your code.
-- It can be installed either as GUI and CLI application.
-- It helps in creating a local repository and tracks code changes in that repository.
+### What is GitHub?
+GitHub is a cloud-based hosting service for Git repositories, enhancing collaboration and accessibility.
+It provides a graphical interface for managing repositories, making them more organized and shareable.
+Features include issue tracking, pull requests, CI/CD pipelines, and role-based access control.
+It allows multiple contributors to work together efficiently by forking, cloning, and merging branches.
 
-# Github
+### Analogy
+Git is like a personal file system that tracks versions of your code.
+GitHub is like Google Drive for Git repositories—providing cloud storage, collaboration tools, and version control in one place.
 
-- Github is a cloud-based platform for hosting git repos and colloboration tool.
-- It basically uses git and represents and stores the repos in a more presentable and managable format.
-- Provides a remote Git repository hosting service, issue tracking, and CI/CD integrations.
-- It helps in colloborating your project repo with others.
-- Allows multiple contributors to work together easily via pull requests.
-- Access control is granted by the repo owner to other contributors.
+### Essential Git Commands
+#### 1️⃣ Initialize a New Repository
+##### git init
+Creates a .git folder inside the current directory, which starts tracking files.
 
-Analogy
-- Git is like a file system on your computer that tracks changes in code.
-- GitHub is like Google Drive for Git repositories—it stores, manages, and allows collaboration in the cloud.
+#### 2️⃣ Check the Status of the Repository
+##### git status
+Displays the state of the working directory and staging area, including untracked and modified files.
 
-## Git commands
+#### 3️⃣ Adding Files to the Staging Area
+##### git add <file> 
+  - Stage a single file
+##### git add . 
+  - Stage all modified files
 
-### To initiate a new git repo in a local system directory
-git init
+The staging area acts as an intermediate space between the working directory and the repository, allowing you to prepare files before committing.
 
-This basically create a .git folder and this following is responsible for tracking all the files 
+Undo Staging (Move Back to Working Directory)
+##### git restore --staged <file>
 
-### To add file to staging area 
-- touch test.txt
-- git add test.txt
+#### 4️⃣ Committing Changes
+##### git commit -m "Descriptive commit message"
+Saves staged changes in the Git history with a unique commit hash.
 
-- staging area - It is an intermediate space between your working directory and git repo, where your file is being prepared to be moved to git repo
-- Without adding files to staging area, any changes made in the file will not be tracked
+View Commit History
+##### git log --oneline --graph --all
+Shows a summarized commit history in a visual format.
 
-To check status of file
-git status --- No changes since the file is not added to staging area
+#### 5️⃣ Undo Changes (Reverting to a Previous State)
+View Commit History
+##### git log
 
-#### Working Directory (Untracked / Modified)
-- Where you create and edit files.
-- Git does not track changes yet.
-- Use git status to check changes.
-- Staging Area (Indexed)
+Revert a Commit
+##### git revert <commit-id>
+Creates a new commit that undoes the changes made by a previous commit without removing history.
 
-#### Prepares selected changes for commit.
-- Use git add file.txt to move a file to staging.
-- You can review what’s staged using git status.
+Hard Reset (Dangerous – Erases Commits)
+##### git reset --hard <commit-id>
+Moves the repository back to the specified commit, deleting all changes after it.
 
-#### Repository (Committed)
-Permanent storage of changes with history.
+#### 6️⃣ Configure Git User
+##### git config --global user.name "Your Name"
+##### git config --global user.email "your.email@example.com"
+##### git config --list - View Git configurations
 
-### moving file from staging area to unstaging area
-git restore filename
+This sets your identity for Git commits.
 
-### To store the changes in the history
-Once after adding the file to staging area with some change, we need to permanently store the commit details, so that in future with this 
-commit we can rollback to previous state during error
+#### 7️⃣ Adding a Remote Repository
+##### git remote -v - Check if a remote exists
+##### git remote add origin <repository_URL> - Link a remote repo
+##### git remote remove origin - Remove the remote link
 
-git commit -m "<commit-message>" 
+The origin keyword is an alias for the remote repository.
 
-each and every commit will create a hash index value and with this hash value we can revert back to that commit 
+#### 8️⃣ Pushing Changes to a Remote Repository
+##### git push origin main - Push local commits to the main branch
+##### git push -u origin main - Set the upstream branch (only needed the first time)
 
-### To revert back to previous or older commit
-So once we commit all this commits are stored in list format, one above the another with different hash for each commit 
-commit 3 = '= hash val
-commit 2
-commit 1
+Uploads your local changes to the remote repository.
 
-If you want to revert back or move back commit 1
+#### 9️⃣ Pulling Changes from a Remote Repository
+##### git pull origin main
+Fetches and merges changes from the remote repository.
 
-git revert <commit-id>
+#### 🔟 Cloning a Repository
+##### git clone <repository_URL>
+Creates a local copy of a remote repository.
 
-### To set global user to gitbash 
-from that user all changes will be made to github repo
+#### 1️⃣1️⃣ Creating and Switching Branches
+##### git branch <branch_name> - Create a new branch
+##### git checkout <branch_name> - Switch to another branch (older method)
+##### git switch <branch_name> - Newer method for switching branches
 
-git config user.name ""
-git config user.email ""
-git config --list [To list all the users] 
+Merging a Branch into Main
+##### git checkout main
+##### git merge <branch_name>
 
-### To add remote repo to git
-git remote -v[check any remote repo exist]
-git add remote origin <repo_url> 
-- In this origin is the name given for that url [for eg: like alias name in linux origin = "https://github.com/username/repo.git"]
-- To remove: git remote remove origin
+Deleting a Branch
+##### git branch -d <branch_name> - Delete a local branch
+##### git push origin --delete <branch_name> - Delete a remote branch
 
-### To push data to added repo
-git push origin main
+#### 1️⃣2️⃣ Stashing Changes (Temporary Save Without Commit)
+##### git stash - Stash uncommitted changes
+##### git stash pop - Reapply stashed changes
+##### git stash list - View saved stashes
+##### git stash clear - Remove all stashed changes
 
-- In this origin represents the repo and main is the branch in which data is to be pushed
+#### 1️⃣3️⃣ Checking Differences in Files
+##### git diff - View changes in working directory
+##### git diff --staged - View changes in staging area
 
+#### 1️⃣4️⃣ Fetching vs. Pulling
+##### git fetch origin
+This downloads new data from the remote repository without merging it into your working branch.
 
+##### git pull origin main
+This fetches and merges remote changes into your current branch.
 
+#### 1️⃣5️⃣ Rebasing a Branch (Alternative to Merging)
+##### git rebase <branch_name>
+Moves your branch on top of another branch’s commits, creating a linear commit history.
 
+#### 1️⃣6️⃣ Deleting a File from Git
+##### git rm <file>
+##### git commit -m "Removed file"
+##### git push origin main
+Deletes the file from both the local and remote repository.
+
+#### 1️⃣7️⃣ Tagging a Release
+##### git tag -a v1.0 -m "Version 1.0"
+##### git push origin v1.0
+Creates a versioned tag for easy reference in deployments.
