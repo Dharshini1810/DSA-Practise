@@ -6,7 +6,8 @@
 
 <img width="473" height="412" alt="image" src="https://github.com/user-attachments/assets/b407266a-cf43-4454-a53c-34dd86e6b2ca" />
 
-#!/bin/python3
+```
+!/bin/python3
 
 import math
 import os
@@ -14,16 +15,12 @@ import random
 import re
 import sys
 
+ Complete the 'getMinCost' function below.
 
-
-#
-# Complete the 'getMinCost' function below.
-#
-# The function is expected to return a LONG_INTEGER.
-# The function accepts following parameters:
-#  1. INTEGER_ARRAY crew_id
-#  2. INTEGER_ARRAY job_id
-#
+ The function is expected to return a LONG_INTEGER.
+ The function accepts following parameters:
+  1. INTEGER_ARRAY crew_id
+  2. INTEGER_ARRAY job_id
 
 def getMinCost(crew_id, job_id):
     # print(crew_id)
@@ -32,8 +29,7 @@ def getMinCost(crew_id, job_id):
     s = 0
     for i in range(len(crew_id)):
         s+=abs(job_id[i] - crew_id[i])
-    return s
-    
+    return s 
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -49,7 +45,6 @@ if __name__ == '__main__':
     job_id_count = int(input().strip())
 
     job_id = []
-
     for _ in range(job_id_count):
         job_id_item = int(input().strip())
         job_id.append(job_id_item)
@@ -60,7 +55,7 @@ if __name__ == '__main__':
     fptr.write(str(result) + '\n')
 
     fptr.close()
-
+```
 
 
 
